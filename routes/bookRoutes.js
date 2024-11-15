@@ -1,5 +1,5 @@
 const {Router} = require("express")
-const { getBooks, addBook, updateBook, deleteBook, getOneBook, search } = require("../controller/book.controller")
+const { getBooks, addBook, updateBook, deleteBook, getOneBook, search } = require
 const { getAuthors, getOneAuthor, addAuthor, updateAuthor, deleteAuthor } = require("../controller/author.controller")
 
 const bookRouter = Router()
