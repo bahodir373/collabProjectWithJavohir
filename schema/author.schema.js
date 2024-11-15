@@ -1,6 +1,8 @@
-const { model, Schema } = require("mongoose");
 
-const authorSchema = new Schema({
+
+const mongoose = require('mongoose');
+
+const authorSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please put the name"],
@@ -9,27 +11,20 @@ const authorSchema = new Schema({
     trim: true,
     match: [/^[A-Za-z\s\-']+$/, "Only letters, spaces, dashes, and apostrophes are allowed."]
   },
-  surname: {
-    type: String,
-    required: [true, "Please put the surname"],
-    minlength: [2, "Surname kamida 2 harf bolishi kerak"],
-    maxlength: [200, "Surname 200 harfdan oshmasligi kerak"],
-    trim: true,
-    match: [/^[A-Za-z\s\-']+$/, "Only letters, spaces, dashes, and apostrophes are allowed."]
-  },
-  birthYear: {
+  birthDeath: {
     type: Number,
-    required: [true, "Please put the birthYear"],
-    max: [new Date().getFullYear(), "BirthYear hozirgi yildan katta bo'lmasin"],
-    min: [1000, "BirthYear juda kichik"],
-    trim: true
+        required: [true, "Please put the birthDeath"],
+        max: [new Date().getFullYear(), "DiedYear hozirgi yildan katta bo'lmasin"],
+        trim: true,
   },
-  diedYear: {
+  booksCount: {
     type: Number,
-    required: [true, "Please put the diedYear"],
-    max: [new Date().getFullYear(), "DiedYear hozirgi yildan katta bo'lmasin"],
-    trim: true,
+    default: 0
+  },
+  audiobooksCount: {
+    type: Number,
+    default: 0
   }
 });
 
-module.exports = model("author", authorSchema);
+module.exports = mongoose.model('Author', authorSchema);

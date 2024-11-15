@@ -1,5 +1,5 @@
 const Author = require('../schema/author.schema');
-const Book = require('../schema/book.schema');
+
 
 exports.getAuthors = async (req, res, next) => {
   try {
