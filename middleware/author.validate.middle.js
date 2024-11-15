@@ -1,4 +1,4 @@
-const {authorValidator} = require("../author.validator/")
+const {authorValidator} = require("../validator/author.validator")
 
 module.exports.authorValidate = (req , res , next) => {
   try{
