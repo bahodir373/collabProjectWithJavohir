@@ -1,21 +1,21 @@
 const {Router} = require("express")
-const { getBooks, addBook, updateBook, deleteBook, getOneBook, search } = require("../controller/bookController")
-const { getAuthors, getOneAuthor, addAuthor, updateAuthor, deleteAuthor } = require("../controller/author.controller")
+const { getBooks, addBook, updateBook, deleteBook, search, updateAuthors, deleteAuthors, getAuthors, addAuthor } = require("../controller/bookController")
+
 
 const bookRouter = Router()
 
 bookRouter.get("/getBooks" , getBooks)
-bookRouter.get("/getOneBook/:id" , getOneBook)
+bookRouter.get("/getOneBook/:id")
 bookRouter.post("/addBook" , addBook)
 bookRouter.put("/updateBook/:id" , updateBook)
 bookRouter.delete("/deleteBook/:id" , deleteBook)
 bookRouter.get("/search" ,search)
 
 bookRouter.get("/getAuthors" , getAuthors)
-bookRouter.get("/getOneAuthor/:id" , getOneAuthor)
+bookRouter.get("/getOneAuthor/:id" )
 bookRouter.post("/addAuthor" , addAuthor)
-bookRouter.put("/updateAuthor/:id" , updateAuthor)
-bookRouter.delete("/deleteAuthor/:id" , deleteAuthor)
+bookRouter.put("/updateAuthor/:id" , updateAuthors)
+bookRouter.delete("/deleteAuthor/:id" , deleteAuthors)
 bookRouter.get("/search" ,search)
 
 module.exports  = bookRouter

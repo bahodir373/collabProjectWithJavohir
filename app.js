@@ -1,15 +1,16 @@
 const express = require('express');
+const cors = require("cors")
 const connectDB = require('./config/database');
-const authorRoutes = require('./routes/authorRoutes');
 const bookRoutes = require('./routes/bookRoutes');
-const errorHandler = require('./middlewares/errorMiddleware');
+const errorHandler = require('./middleware/errorMiddleware');
 require('dotenv').config()
 
 const PORT = process.env.PORT || 5000
 
 const app = express();
-
+app.use(cors())
 connectDB();
+
 app.use(express.json());
 
 
